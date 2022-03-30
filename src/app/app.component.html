@@ -1,23 +1,33 @@
-<mat-sidenav-container>
+<mat-sidenav-container *ngIf="Logintrue=='1'">
 
-    <mat-sidenav #side style="background-color: #3F51B5 !important;">
+	<mat-sidenav #side style="background-color: #3F51B5 !important;">
 
-      <SideMenu-C ></SideMenu-C>
-     
-    </mat-sidenav>
-    
-    <mat-sidenav-content style="height: 650px; background-color: black;">
+		<SideMenu-C></SideMenu-C>
 
-      <Header-C [Sidenav]="side"></Header-C>
+	</mat-sidenav>
 
-      <router-outlet>
+	<mat-sidenav-content style="height: 650px; background-color: black;">
 
-        
-      </router-outlet>
+		<Header-C [Sidenav]="side"></Header-C>
 
-    </mat-sidenav-content>
+		<router-outlet>
+
+
+		</router-outlet>
+
+	</mat-sidenav-content>
 
 </mat-sidenav-container>
 
 
+<div *ngIf="Logintrue=='0'" class="bg-secondary">
 
+	<Login>
+
+	</Login>
+
+	<Register>
+
+	</Register>
+
+</div>

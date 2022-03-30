@@ -16,6 +16,8 @@ import { LoggingInterceptor } from './Services/Interceptors/LoggingInterceptor.i
 import { NewsComponent } from './Components/News/News.component';
 import { NewsCardComponent } from './Components/News/NewsCard/NewsCard.component';
 import { MultilevelMenuService, NgMaterialMultilevelMenuModule,ɵb } from 'ng-material-multilevel-menu';
+import { LoginComponent } from './Components/Login/Login.component';
+import { RegisterComponent } from './Components/Register/Register.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { MultilevelMenuService, NgMaterialMultilevelMenuModule,ɵb } from 'ng-ma
     HeaderComponent,
     SideMenuComponent,
     NewsComponent,
-    NewsCardComponent
+    NewsCardComponent,
+	LoginComponent,
+	RegisterComponent
   ],
   imports: [
     BrowserModule,
