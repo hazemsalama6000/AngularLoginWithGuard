@@ -8,7 +8,7 @@ import { SharedModule } from './Modules/SharedModule/SharedModule.module';
 import { HeaderComponent } from './Components/Header/Header.component';
 import { SideMenuComponent } from './Components/SideMenu/SideMenu.component';
 import { LoggingService } from './Services/Logging.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Services/Interceptors/AuthInterceptor.interceptor';
 import { CachingInterceptor } from './Services/Interceptors/CachingInterceptor.interceptor';
 import { ErrorInterceptor } from './Services/Interceptors/ErrorInterceptor.interceptor';
@@ -35,7 +35,8 @@ import { RegisterComponent } from './Components/Register/Register.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    NgMaterialMultilevelMenuModule
+    NgMaterialMultilevelMenuModule,
+	HttpClientModule
   ],
   providers: [
     LoggingService,ɵb ,MultilevelMenuService,
