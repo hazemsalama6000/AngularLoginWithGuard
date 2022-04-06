@@ -23,7 +23,12 @@ constructor(){}
     AddAuthToHeader(request: HttpRequest<any>) {
         return request.clone({
             setHeaders: {
-                'X-Api-Key': environment.ApiKey
+				//'Content-Type': 'application/json',
+                //'Access-Control-Allow-Origin': '*',
+                //'Access-Control-Allow-Credentials': 'true',
+                //'Access-Control-Allow-Headers': 'Content-Type',
+                //'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+				//'lang':'ar'
                         }
         });
     }

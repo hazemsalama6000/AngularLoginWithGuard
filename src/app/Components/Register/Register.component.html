@@ -2,13 +2,14 @@
 
 	<div class="container bg-dark p-5 text-light rounded-3">
 		<h1 class="text-center text-decoration-underline">Register Form</h1>
-		<form>
+		<form [formGroup]="RegisterForm" (ngSubmit)="RegisterFun(RegisterForm.value)">
 
 			<div class="row">
 				<div class="form-group">
-					<label for="username"><b>Name</b></label>
+					<label for="name"><b>Name</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="text" placeholder="Enter Username" name="username">
+						<input class="form-control" type="text" placeholder="Enter name" formControlName="name">
+					    <span class="badge bg-warning text-dark" *ngIf="RegisterForm.controls['name'].touched && RegisterForm.controls['name'].errors?.['required']">Write name</span>
 					</div>
 				</div>
 			</div>
@@ -19,7 +20,10 @@
 
 					<label for="email"><b>Email</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="email" placeholder="Enter email" name="email">
+						<input class="form-control" type="email" placeholder="Enter email" formControlName="email">
+						<span class="badge bg-warning text-dark"
+							*ngIf="RegisterForm.controls['email'].touched && RegisterForm.controls['email'].errors?.['required']">Write
+							email</span>
 					</div>
 				</div>
 			</div>
@@ -28,7 +32,11 @@
 				<div class="form-group">
 					<label for="password" class="col-md-1"><b>Password</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="password" placeholder="Enter Password" name="password">
+						<input class="form-control" type="password" placeholder="Enter Password"
+							formControlName="password">
+						<span class="badge bg-warning text-dark"
+							*ngIf="RegisterForm.controls['password'].touched && RegisterForm.controls['password'].errors?.['required']">Write
+							Password</span>
 					</div>
 				</div>
 			</div>
@@ -38,13 +46,16 @@
 
 					<label for="phone"><b>Phone</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="text" placeholder="Enter phone" name="phone">
+						<input class="form-control" type="text" placeholder="Enter phone" formControlName="phone">
+						<span class="badge bg-warning text-dark"
+							*ngIf="RegisterForm.controls['phone'].errors?.['required'] && RegisterForm.controls['phone'].touched">Write
+							Phone</span>
 					</div>
 				</div>
 
 			</div>
 
-			<button class="btn btn-danger mt-3" type="submit">Register</button>
+			<button class="btn btn-danger mt-3" [disabled]="!RegisterForm.valid" type="submit">Register</button>
 
 		</form>
 

@@ -1,4 +1,4 @@
 export enum ApiPaths {
-    sources = '/top-headlines/sources',
-    News = '/top-headlines',
+    Login = 'login',
+    Register = 'register',
   }

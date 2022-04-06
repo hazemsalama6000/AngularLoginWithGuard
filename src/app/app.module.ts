@@ -18,6 +18,7 @@ import { NewsCardComponent } from './Components/News/NewsCard/NewsCard.component
 import { MultilevelMenuService, NgMaterialMultilevelMenuModule,ɵb } from 'ng-material-multilevel-menu';
 import { LoginComponent } from './Components/Login/Login.component';
 import { RegisterComponent } from './Components/Register/Register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RegisterComponent } from './Components/Register/Register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+	ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
     NgMaterialMultilevelMenuModule,

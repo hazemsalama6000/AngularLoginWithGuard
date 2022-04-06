@@ -12,7 +12,7 @@ export class NewsService {
     constructor(private httpClient: HttpClient) { }
 
     getNewsOfSpecificSource(SourceId: string): Observable<any> {
-        return this.httpClient.get<any>(environment.SourceUrl + ApiPaths.News + `?sources=${SourceId}`)
+        return this.httpClient.get<any>(environment.SourceUrl  + `?sources=${SourceId}`)
     }
 
 }

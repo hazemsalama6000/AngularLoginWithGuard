@@ -78,6 +78,7 @@
             },
             "development": {
               "browserTarget": "newsEgypt:build:development"
+
             }
           },
           "defaultConfiguration": "development"

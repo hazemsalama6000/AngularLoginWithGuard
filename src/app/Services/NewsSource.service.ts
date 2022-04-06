@@ -12,7 +12,7 @@ export class NewsSourceService{
     constructor(private httpClient:HttpClient){}
 
     getMenuItems():Observable<any>{
-     return this.httpClient.get<any>(environment.SourceUrl+ApiPaths.sources);
+     return this.httpClient.get<any>(environment.SourceUrl);
     }
 
 }
