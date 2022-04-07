@@ -1,7 +1,7 @@
 <section id="RegisterSection" class="mt-2 rounded-circle mb-5">
 
 	<div class="container bg-dark p-5 text-light rounded-3">
-		<h1 class="text-center text-decoration-underline">Register Form</h1>
+		<h1 class="text-center text-decoration-underline" i18n>Register Form</h1>
 		<form [formGroup]="RegisterForm" (ngSubmit)="RegisterFun(RegisterForm.value)">
 
 			<div class="row">
@@ -56,7 +56,7 @@
 			</div>
 
 			<button class="btn btn-danger mt-3" [disabled]="!RegisterForm.valid" type="submit">Register</button>
-
+			<span class="mx-5 badge bg-primary" *ngIf="Message">{{Message}}</span>
 		</form>
 
 

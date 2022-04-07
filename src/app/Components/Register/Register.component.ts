@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Register } from "src/app/Models/Register";
+import { IResponse } from "src/app/Models/Reponse";
 import { RegisterService } from "src/app/Services/Register.service";
 
 @Component({
@@ -11,7 +12,8 @@ import { RegisterService } from "src/app/Services/Register.service";
 
 export class RegisterComponent {
 
-
+	@Output() LoginEmitter:any=new EventEmitter();
+	Message: string;
 	constructor(private fb: FormBuilder, private registerService: RegisterService) { }
 
 	RegisterForm = this.fb.group({
@@ -25,7 +27,15 @@ export class RegisterComponent {
 	RegisterFun(RegisterModel: Register) {
 		console.log(RegisterModel);
 		this.registerService.Register(RegisterModel).subscribe(
-			(data)=>{console.log(data)
+			(data: IResponse) => {
+				
+					this.Message = data.message;
+				console.log(data);
+				if(data.status){
+					localStorage.setItem('token', data.data.token);
+					this.LoginEmitter.emit();
+					console.log(localStorage.getItem('token'));
+				}
 			});
 	}
 

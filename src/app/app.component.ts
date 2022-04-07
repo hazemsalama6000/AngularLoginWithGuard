@@ -12,4 +12,7 @@ import { Menu } from './Models/AccordionModels/Menu';
 export class AppComponent {
   title = 'newsEgypt';
   Logintrue=LoginOrNot.NotLogin
+  LoginFun(){
+	  this.Logintrue=LoginOrNot.Login;
+  }
 }

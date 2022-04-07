@@ -6,7 +6,7 @@
 
 	</mat-sidenav>
 
-	<mat-sidenav-content style="height: 650px; background-color: black;">
+	<mat-sidenav-content style="height: 100vh; background-color: black;">
 
 		<Header-C [Sidenav]="side"></Header-C>
 
@@ -26,7 +26,7 @@
 
 	</Login>
 
-	<Register>
+	<Register (LoginEmitter)="LoginFun()">
 
 	</Register>
 
