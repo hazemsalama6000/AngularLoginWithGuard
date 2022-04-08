@@ -1,0 +1,17 @@
+{
+	"Register Form":"تسجيل مستخدم",
+	"Name":"الاسم",
+	"Email":"الايميل",
+	"Password":"الرثم السري",
+	"Phone":"التليفون",
+	"Register":"سجل",
+	"Login Form":"تسجيل الدخول",
+	"Login":"دخول",
+	"Write name":"ادخل الاسم",
+	"Write email":"ادخل الايميل",
+	"Write Password":"ادخل الباسورد",
+	"Write Phone":"ادخل الهاتف",
+	"ar":"عربى",
+	"en":"انجليزي",
+	"LogOut":"خروج"
+}

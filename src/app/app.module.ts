@@ -8,7 +8,7 @@ import { SharedModule } from './Modules/SharedModule/SharedModule.module';
 import { HeaderComponent } from './Components/Header/Header.component';
 import { SideMenuComponent } from './Components/SideMenu/SideMenu.component';
 import { LoggingService } from './Services/Logging.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Services/Interceptors/AuthInterceptor.interceptor';
 import { CachingInterceptor } from './Services/Interceptors/CachingInterceptor.interceptor';
 import { ErrorInterceptor } from './Services/Interceptors/ErrorInterceptor.interceptor';
@@ -19,6 +19,8 @@ import { MultilevelMenuService, NgMaterialMultilevelMenuModule,ɵb } from 'ng-ma
 import { LoginComponent } from './Components/Login/Login.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 @NgModule({
@@ -38,7 +40,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SharedModule,
     NgMaterialMultilevelMenuModule,
-	HttpClientModule
+	HttpClientModule,
+	TranslateModule.forRoot({
+		defaultLanguage:"en",
+		loader:{
+			provide:TranslateLoader,
+			useFactory:httpLoaderFactory,
+			deps:[HttpClient]
+		}
+	})
   ],
   providers: [
     LoggingService,ɵb ,MultilevelMenuService,
@@ -68,3 +78,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+export function httpLoaderFactory(http:HttpClient){
+	return new TranslateHttpLoader(http,'../assets/i18n/','.json')
+}
+

@@ -1,28 +1,40 @@
-<mat-sidenav-container *ngIf="Logintrue=='1'">
-
-	<mat-sidenav #side style="background-color: #3F51B5 !important;">
-
-		<SideMenu-C></SideMenu-C>
-
-	</mat-sidenav>
-
-	<mat-sidenav-content style="height: 100vh; background-color: black;">
-
-		<Header-C [Sidenav]="side"></Header-C>
-
-		<router-outlet>
 
 
-		</router-outlet>
 
-	</mat-sidenav-content>
+<div [dir]="direction" >
+	
+	<mat-sidenav-container *ngIf="Logintrue=='1'">
+	
+		<mat-sidenav #side style="background-color: #3F51B5 !important;">
+	
+			<SideMenu-C></SideMenu-C>
+	
+		</mat-sidenav>
+	
+		<mat-sidenav-content style="height: 100vh; background-color: black;">
+	
+			<Header-C [Sidenav]="side" (LogoutEvent)="LogOutFun()" (langEvent)="LangChange($event)"></Header-C>
+	
+			<router-outlet>
+	
+	
+			</router-outlet>
+	
+		</mat-sidenav-content>
+	
+	</mat-sidenav-container>
+</div>
 
-</mat-sidenav-container>
 
+<div *ngIf="Logintrue=='0'" class="bg-secondary" [dir]="direction">
+	<div class="d-flex align-items-center justify-content-center">
 
-<div *ngIf="Logintrue=='0'" class="bg-secondary">
+		<button class="btn btn-danger" (click)="LangChange('ar')">ar</button>
+		<button class="btn btn-primary" (click)="LangChange('en')">En</button>
 
-	<Login>
+	</div>
+	
+	<Login (LoginEmitter)="LoginFun()">
 
 	</Login>
 
