@@ -16,7 +16,7 @@ export class RegisterService
 constructor(private httpClient:HttpClient){}
 
 
-checkNameExistance(name:string){
+checkEmailExistance(name:string){
 
 }
 

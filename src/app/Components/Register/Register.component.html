@@ -8,7 +8,7 @@
 				<div class="form-group">
 					<label for="name"><b>{{"Name"|translate}}</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="text"  formControlName="name">
+						<input class="form-control" type="text" formControlName="name">
 						<span class="badge bg-warning text-dark"
 							*ngIf="RegisterForm.controls['name'].touched && RegisterForm.controls['name'].errors?.['required']">
 							<b>{{"Write name"|translate}}</b>
@@ -23,11 +23,18 @@
 
 					<label for="email"><b>{{"Email"|translate}}</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="email"  formControlName="email">
+						<input class="form-control" type="email" formControlName="email">
+
 						<span class="badge bg-warning text-dark"
 							*ngIf="RegisterForm.controls['email'].touched && RegisterForm.controls['email'].errors?.['required']">
 							<b>{{"Write email"|translate}}</b>
 						</span>
+
+						<span class="badge bg-warning text-dark" *ngIf="RegisterForm.controls['email'].touched &&
+			        	RegisterForm.controls['email'].errors?.['emailExists']">
+							{{'Email Exist'|translate}}
+						</span>
+
 					</div>
 				</div>
 			</div>
@@ -36,8 +43,7 @@
 				<div class="form-group">
 					<label for="password" class="col-md-1"><b>{{"Password"|translate}}</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="password" 
-							formControlName="password">
+						<input class="form-control" type="password" formControlName="password">
 						<span class="badge bg-warning text-dark"
 							*ngIf="RegisterForm.controls['password'].touched && RegisterForm.controls['password'].errors?.['required']">
 							<b>{{"Write Password"|translate}}</b>
@@ -51,7 +57,7 @@
 
 					<label for="phone"><b>{{"Phone"|translate}}</b></label>
 					<div class="col-md-6">
-						<input class="form-control" type="text"  formControlName="phone">
+						<input class="form-control" type="text" formControlName="phone">
 						<span class="badge bg-warning text-dark"
 							*ngIf="RegisterForm.controls['phone'].errors?.['required'] && RegisterForm.controls['phone'].touched">
 							<strong>{{"Write Phone"|translate}}</strong>

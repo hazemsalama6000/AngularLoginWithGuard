@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { Register } from "src/app/Models/Register";
 import { IResponse } from "src/app/Models/Reponse";
 import { RegisterService } from "src/app/Services/Register.service";
-
+import {emailCheckExistance} from "../../Validators/emailExistance.validator"
 @Component({
 	selector: "Register",
 	templateUrl: './Register.component.html',
@@ -17,7 +17,7 @@ export class RegisterComponent {
 	constructor(private fb: FormBuilder, private registerService: RegisterService) { }
 
 	RegisterForm = this.fb.group({
-		email: ['', Validators.required],
+		email: ['', [Validators.required], [emailCheckExistance]],
 		password: ['', Validators.required],
 		phone: ['', Validators.required],
 		name: ['', Validators.required]
